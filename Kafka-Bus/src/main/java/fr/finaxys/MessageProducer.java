@@ -23,15 +23,9 @@ public class MessageProducer {
 
         topic = theTopic;
         Properties props = new Properties();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.1.87:9092");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
-        /*props.put("acks", "all");
-        props.put("retries", 0);
-        props.put("batch.size", 16384);
-        props.put("linger.ms", 1);
-        props.put("buffer.memory", 33554432);*/
-        props.put("request.timeout.ms", 100);
         producer = new KafkaProducer(props);
     }
 
